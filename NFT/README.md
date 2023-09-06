@@ -1,5 +1,6 @@
-NFT Exchange
-Problem Statement
+## NFT Exchange
+# Problem Statement
+
 Design an NFT exchange (Non Fungible Token Exchange) that orchestrates the sale and purchase of
 NFT, using crypto currency (flipcoin) as a payment option.
 An artist is considered to be a person who owns the NFT initially and creates NFT in the exchange.
@@ -67,7 +68,8 @@ should be sufficient
 ● Do not make any assumption, please ask it out.
 Test Samples ( This is for demo purposes only. Feel free to define your own methods with
 required arguments.)
-Test Case 1: Sell the NFT created
+
+### Test Case 1: Sell the NFT created
 1. create_exchange( )
 2. create_artist(name = "A", initial flipcoin in wallet = 1000)
 3. create_user(name = "B", initial flipcoin in wallet = 2000)
@@ -108,7 +110,8 @@ i. output
 2. Id = “A”, flipcoin = 1950
 3. Id = “B”, flipcoin = 2650
 4. Id = “C”, flipcoin = 1700
-Test Case 2: Sell the NFT created
+
+### Test Case 2: Sell the NFT created
 1. create_exchange( )
 2. create_artist(name = "A", initial flipcoin in wallet = 1000)
 3. create_user(name = "B", initial flipcoin in wallet = 1000)
@@ -125,7 +128,8 @@ a. output
 i. Exchange, flipcoin = 100
 ii. Id = “A”, flipcoin = 900
 iii. Id = “B”, flipcoin = 1000
-Test Case 3: Sell the NFT created above selling price
+
+### Test Case 3: Sell the NFT created above selling price
 1. create_exchange( )
 2. create_artist(name = "A", initial flipcoin in wallet = 1000)
 3. create_user(name = "B", initial flipcoin in wallet = 4000)
