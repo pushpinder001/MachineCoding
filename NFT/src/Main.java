@@ -48,39 +48,41 @@ public class Main {
     public static void main(String[] args) {
         NFTExchange nftExchange = new NFTExchangeServiceImpl();
 
+        //Test Case 1
+//        nftExchange.createArtist("A", 1000.0);
+//        nftExchange.createUser("B", 2000.0);
+//
+//        nftExchange.createNFT("Temp Art Work","A", 5.0);
+
+//        nftExchange.placeSellOrder("Temp Art Work", 1000.0);
+//        nftExchange.placeBuyOrder("Temp Art Work", "B",1000.0 );
+//
+//        nftExchange.listAllUser();
+//        //place_sell_order(id of seller = “A”, selling price = 1000, NFT_id) <- This is placing the order for
+//
+//        //9
+//        nftExchange.placeSellOrder("Temp Art Work", 2000.0);
+//
+//        //10
+//        nftExchange.listAllNFTs();
+//
+//        //11
+//        nftExchange.createUser("C", 4000.0);
+//
+//        //12
+//        nftExchange.placeBuyOrder("Temp Art Work", "C", 2000.0);
+//
+//        System.out.println("           ");
+//        nftExchange.listAllUser();
+
+
+        //Test Case 2
         nftExchange.createArtist("A", 1000.0);
-        nftExchange.createUser("B", 2000.0);
-
-        nftExchange.createNFT("Temp Art Work","A", 5.0);
-
-//        5. place_sell_order(id of seller = “A”, selling price = 1000, NFT_id) <- This is placing the order for
-// * sell, not successfully selling the NFT
-// * i. Output : NFT successfully listed for sale
-//                * 6. buy_NFT(id of buyer = “B”, buying price = 1000, NFT_id) <- This is buying the NFT, which is
-//                * listed for sale.
-//                * i. Output: NFT successfully bought
-//                * 7. list_all_users()
-
+        nftExchange.createUser("B", 1000.0);
+        nftExchange.createNFT("Temp Art Work", "A", 5.0);
 
         nftExchange.placeSellOrder("Temp Art Work", 1000.0);
-        nftExchange.placeBuyOrder("Temp Art Work", "B",1000.0 );
-
-        nftExchange.listAllUser();
-        //place_sell_order(id of seller = “A”, selling price = 1000, NFT_id) <- This is placing the order for
-
-        //9
-        nftExchange.placeSellOrder("Temp Art Work", 2000.0);
-
-        //10
-        nftExchange.listAllNFTs();
-
-        //11
-        nftExchange.createUser("C", 4000.0);
-
-        //12
-        nftExchange.placeBuyOrder("Temp Art Work", "C", 2000.0);
-
-        System.out.println("           ");
+        nftExchange.placeBuyOrder("Temp Art Work", "B", 1000.0);
         nftExchange.listAllUser();
 
         System.out.println("Hello world!");

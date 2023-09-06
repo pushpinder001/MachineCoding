@@ -13,8 +13,6 @@ import java.util.*;
 public class NFTOrderServiceImpl implements INFTOrderService {
     Map<String, Order> sellOrder;
 
-    Map<String, Queue<Order>> buyOrders;
-
     INFTRepo nInftRepo;
 
     IUserRepo iUserRepo;
@@ -25,7 +23,6 @@ public class NFTOrderServiceImpl implements INFTOrderService {
 
     public NFTOrderServiceImpl(INFTRepo nfInftRepo, IUserRepo iUserRepo, IArtistRepo iArtistRepo) {
         this.sellOrder = new HashMap<>();
-        this.buyOrders = new HashMap<>();
         this.nInftRepo = nfInftRepo ;
         this.iUserRepo = iUserRepo;
         this.iArtistRepo = iArtistRepo;
@@ -37,22 +34,18 @@ public class NFTOrderServiceImpl implements INFTOrderService {
         NFT nft  = this.nInftRepo.get(artWork).get();
         Order order = new Order(Order.Type.SELL, price, artWork, nft.getOwnerName());
         this.sellOrder.put(artWork, order);
-        checkForTransaction(artWork);
         return order;
     }
 
     @Override
     public Order placeBuyOrder(String artWork, Double price, String buyer) {
         Order order = new Order(Order.Type.BUY, price, artWork, buyer);
-        this.buyOrders.putIfAbsent(artWork, new PriorityQueue<>((o1, o2) -> {return (int)(o2.getPrice() - o1.getPrice());}));
-        this.buyOrders.get(artWork).add(order);
-        checkForTransaction(artWork);
+        checkForTransaction(artWork, order);
         return order;
     }
 
-    void checkForTransaction(String artWork) {
+    void checkForTransaction(String artWork, Order buyOrder) {
         Order sellOrder = this.sellOrder.get(artWork);
-        Order buyOrder  = this.buyOrders.get(artWork)!= null?this.buyOrders.get(artWork).peek():null;
 
         if(sellOrder != null && buyOrder != null && sellOrder.getPrice() >= buyOrder.getPrice()) {
             //Check for buyers wallet
@@ -83,7 +76,6 @@ public class NFTOrderServiceImpl implements INFTOrderService {
                 }
 
                 this.sellOrder.remove(artWork);
-                this.buyOrders.get(artWork).poll();
 
                 nft.setOwnerName(buyer.getName());
                 nInftRepo.save(nft);
