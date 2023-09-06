@@ -59,14 +59,16 @@ good-to-have features of your own.
 4. Code should easily accommodate new requirements with minimal changes.
 5. Proper exception handling is required.
 6. Code should be modular, readable and unit-testable.
+
 Important Notes:
-● Do not use any database store, use in-memory data structure.
-● Focus on code completion, before adding checks for edge cases.
-● Do not create any UI for the application.
-● Do not build a Command line interface, Executing test cases or simple Main function ●
+- Do not use any database store, use in-memory data structure.
+- Focus on code completion, before adding checks for edge cases.
+- Do not create any UI for the application.
+- Do not build a Command line interface, Executing test cases or simple Main function ●
 should be sufficient
-● Do not make any assumption, please ask it out.
-Test Samples ( This is for demo purposes only. Feel free to define your own methods with
+- Do not make any assumption, please ask it out.
+
+## Test Samples ( This is for demo purposes only. Feel free to define your own methods with
 required arguments.)
 
 ### Test Case 1: Sell the NFT created
